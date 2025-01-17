@@ -1,0 +1,46 @@
+//
+//  Utilities: Mixins
+//  ---------------------------------------------
+
+@mixin font-size($fontSizeValue: 16) {
+  font-size: $fontSizeValue + px;
+  font-size: (0.0625 * $fontSizeValue) + rem;
+}
+
+@mixin line-height($lineHeightValue: 22) {
+  line-height: $lineHeightValue + px;
+  line-height: (0.0625 * $lineHeightValue) + rem;
+}
+
+@mixin font($fontSizeValue: 12, $lineHeightValue: 20) {
+  @include font-size($fontSizeValue);
+  @include line-height($lineHeightValue);
+}
+
+@mixin light-mode {
+  //@media (prefers-color-scheme: light) { @content; }
+  :global(.light-mode) { @content; }
+}
+
+@mixin dark-mode {
+  //@media (prefers-color-scheme: dark) { @content; }
+  :global(.dark-mode) { @content; }
+}
+
+@mixin smoothin ( $smoothing: antialiased, $backface: hidden, $blur: 0 ){
+  -webkit-font-smoothing: $smoothing;
+  backface-visibility: $backface;
+  -webkit-filter: blur($blur);
+}
+
+@mixin transition($default: all 0.3s ease-in-out){ transition: $default; }
+@mixin hyphens($value: auto) { hyphens: $value; }
+
+@mixin shadow($x, $y, $blur, $spread, $color, $inset: false) {
+  @if $inset { box-shadow:inset $x $y $blur $spread $color; } 
+  @else { box-shadow: $x $y $blur $spread $color; }
+}
+
+@mixin gradient($color-start: $background__color-4, $color-end: $background__color-6) {
+  background: linear-gradient(to bottom, $color-start 0%, $color-end 100%);
+}

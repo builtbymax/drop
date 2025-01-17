@@ -1,0 +1,116 @@
+@use "sass:string";
+@use "functions";
+
+//
+//  Utilities: Grid
+//  ---------------------------------------------
+
+$sizes: functions.empty-map() !default;
+$grid-classes: functions.empty-map() !default;
+
+$sizes: functions.map-deep-merge(
+  (
+    mobile-down: 0,
+    mobile: 0,
+    mobile-wide-down: 369px,
+    mobile-wide: 370px,
+    smart-down: 419px,
+    smart: 420px,
+    smart-m-down: 619px,
+    smart-m: 620px,
+    tablet-down: 767px,
+    tablet: 768px,
+    tablet-wide-down: 1023px,
+    tablet-wide: 1024px,
+    desktop-down: 1219px,
+    desktop: 1220px,
+    desktop-m-down: 1439px,
+    desktop-m: 1440px,
+    desktop-wide-down: 1659px,
+    desktop-wide: 1660px,
+    fullscreen: 100%,
+  ), 
+  $sizes,
+);
+
+//  Grid classes
+//  ---------------------------------------------
+
+$grid-classes: functions.map-deep-merge(
+  (
+    mobile: 'xs',
+    mobile-wide: 'xsm',
+    smart: 's',
+    smart-m: 'sm',
+    tablet: 'm',
+    tablet-wide: 'l',
+    desktop: 'xl',
+    desktop-m: 'xxl',
+    desktop-wide: 'xxxl',
+    fullscreen: 'fullscreen',
+  ), 
+  $grid-classes,
+);
+
+$css-grid__columns: 12 !default;
+$css-grid__gutter: 20px !default;
+$css-grid__gap__row: $css-grid__gutter !default;
+$css-grid__gap__col: $css-grid__gutter !default;
+$css-grid__column-class__prefix: 'gd-' !default;
+
+//  Add additional properties to the grid columns
+$css-grid__column__properties: () !default;
+
+@each $key, $value in $sizes {
+  // only use min-width, not max-width sizes
+  @if string.index($key, '-down') == null {
+    // set media query
+    @media (min-width: $value) {
+      @each $class, $className in $grid-classes {
+        // set grid columns only for the current media query
+        @if $class == $key {
+          // set grid columns
+          @for $i from 1 through $css-grid__columns {
+            // classname would be for example: ".xs-1" & and the width would be "width: calc(1 * 100% / 12);"
+            .#{$css-grid__column-class__prefix}#{$className}-#{$i} {
+              grid-column: span $i;
+              @each $property, $propValue in $css-grid__column__properties {
+                #{$property}: $propValue;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//  CSS-Grid Classes
+//  ---------------------------------------------
+
+$css-grid__row__class: 'grid-row' !default;
+$css-grid__col__class: 'grid-col' !default;
+
+$css-grid__row__properties: (
+  display: grid,
+  grid-template-columns: repeat($css-grid__columns, 1fr),
+  grid-row-gap: $css-grid__gap__row,
+  grid-column-gap: $css-grid__gap__col,
+) !default;
+
+$css-grid__col__properties: (
+  display: flex,
+  flex-direction: column,
+) !default;
+
+.#{$css-grid__row__class}{
+  @each $property, $propValue in $css-grid__row__properties {
+    #{$property}: $propValue;
+  }
+}
+
+.#{$css-grid__col__class}{
+  @each $property, $propValue in $css-grid__col__properties {
+    #{$property}: $propValue;
+  }
+}

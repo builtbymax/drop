@@ -1,0 +1,23 @@
+//
+//  Styles: App
+//  ---------------------------------------------
+
+@use "sass:meta";
+@use 'utils/utilities.scss';
+@use 'colors/colors.scss';
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--base__color-2);
+  color: var(--base__color-1);
+}
+
+.overflow-hidden{ overflow: hidden; }

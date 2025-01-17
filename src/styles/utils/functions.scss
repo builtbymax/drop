@@ -1,0 +1,88 @@
+@use "sass:list";
+@use "sass:map";
+@use "sass:meta";
+//
+//  Utilities: Functions
+//  ---------------------------------------------
+
+// merge maps (add values, override values -> alias for 'map-merge')
+@function add($override, $original) {
+  @if ($override != false and $original != false) {
+    @return map.merge($original, $override);
+  }
+  $original: ();
+  @return $original;
+}
+
+// get value from map
+@function get($map, $key) {
+  @if ($key == '' or $key == null or $key == false) {
+    @return map.values($map);
+  }
+  @return map.get($map, $key);
+}
+
+@function empty-map($x: x) {
+  @return map.remove(($x:$x), $x);
+}
+
+@function map-new() {
+	@return map.remove((), 'key');
+}
+
+@function map-deep-merge($map1: (), $map2: ()) {
+  @if ($map1 == false) {
+    @return 'false';
+  }
+
+	@if (meta.type-of($map1) == 'list' and list.length($map1) == 0) or
+		(meta.type-of($map1) == 'null') or ($map1 == null)
+	{
+		$map1: map-new();
+	}
+
+	@if (meta.type-of($map1) != map) {
+    @debug $map1;
+		@error ('argument `$map1` of `map-deep-merge($map1, $map2)` must be a map');
+	}
+
+  @if ($map2 == false) {
+    @return 'false';
+  }
+
+	@if (meta.type-of($map2) == 'list' and list.length($map2) == 0) or
+		(meta.type-of($map2) == 'null') or ($map2 == null)
+	{
+		$map2: map-new();
+	}
+
+	@if (meta.type-of($map2) != map) {
+		@error ('argument `$map2` of `map-deep-merge($map1, $map2)` must be a map');
+	}
+
+	$newMap: $map1;
+
+	@if (map.get($map2, merge) != false) {
+		@each $key, $value in $map2 {
+			@if (meta.type-of($value) == map) {
+				$newMap: map.merge(
+					$newMap,
+					(
+						$key: map-deep-merge(map.get($newMap, $key), $value),
+					)
+				);
+			} @else {
+				$newMap: map.merge(
+					$newMap,
+					(
+						$key: $value,
+					)
+				);
+			}
+		}
+
+		@return $newMap;
+	}
+
+	@return $map2;
+}
