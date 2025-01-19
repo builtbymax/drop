@@ -1,6 +1,15 @@
 import { pgTable, text, timestamp, boolean, varchar, jsonb } from 'drizzle-orm/pg-core';
 import nodeCrypto from 'crypto';
 //import nodeCrypto from 'crypto'; .$defaultFn(() => nodeCrypto.randomUUID()),
+
+export type SelectEntry = typeof entries.$inferSelect;
+export type Entry = Pick<SelectEntry, 'id' | 'title' | 'content' | 'tags' | 'createdAt' | 'updatedAt'>;
+
+export type SelectUser = typeof user.$inferSelect;
+export type User = typeof user.$inferSelect;
+
+export type SelectSession = typeof session.$inferSelect;
+export type Session = typeof session.$inferSelect;
       
 export const user = pgTable('user', {
   id: text('id').primaryKey(),
