@@ -12,12 +12,13 @@
   box-sizing: border-box;
 }
 
-body{
+body, .vaul-drawer-wrapper{
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--base__color-2);
   color: var(--base__color-1);
+  min-height: 100vh;
 }
 
 .overflow-hidden{ overflow: hidden; }

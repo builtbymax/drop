@@ -11,6 +11,10 @@ export default async function Home() {
         <div>
           <h1>logged in.</h1>
           <SignOutButton />
+          <br />
+          <h2>Got to dashboard:</h2>
+          <Link href="/dashboard">Dashboard</Link>
+          <br />
           My Data: <br />
           <pre>{JSON.stringify(session, null, 2)}</pre>
         </div>

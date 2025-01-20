@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import ReactQueryProvider from '@/providers/QueryClient';
 
 import '@/styles/app.scss';
+import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
   title: 'Drop',
@@ -12,9 +13,14 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
   return (
     <html lang="en">
       <body>
-        <ReactQueryProvider>
-          {children}
-        </ReactQueryProvider>
+        <main>
+          <ReactQueryProvider>
+            <div vaul-drawer-wrapper="" className="vaul-drawer-wrapper">
+              {children}
+            </div>
+            <Toaster />
+          </ReactQueryProvider>
+        </main>
       </body>
     </html>
   );

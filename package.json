@@ -20,6 +20,7 @@
     "react-dom": "^19.0.0",
     "sass": "^1.83.4",
     "sass-loader": "^16.0.4",
+    "sonner": "^1.7.2",
     "vaul": "^1.1.2"
   },
   "devDependencies": {

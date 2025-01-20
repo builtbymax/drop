@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AddNewButton } from "./AddNewButton";
+import { DrawerTrigger } from "./DrawerTrigger";
 
 const Navigation = () => {
   return (
@@ -10,6 +11,7 @@ const Navigation = () => {
         </li>
         <li>
           <AddNewButton />
+          <DrawerTrigger />
         </li>
       </ul>
     </nav>
