@@ -5,27 +5,24 @@ import Link from 'next/link';
 export default async function Home() {
   const session = await userHasSession();
 
+  if (!session) return (
+    <div>
+      <h1>NOT logged in.</h1>
+      <Link href="/login">Login</Link><br />
+      <Link href="/register">Sign Up</Link>
+    </div>
+  );
+
   return (
     <div>
-      { session ? (
-        <div>
-          <h1>logged in.</h1>
-          <SignOutButton />
-          <br />
-          <h2>Got to dashboard:</h2>
-          <Link href="/dashboard">Dashboard</Link>
-          <br />
-          My Data: <br />
-          <pre>{JSON.stringify(session, null, 2)}</pre>
-        </div>
-        ) : (
-        <div>
-          <h1>NOT logged in.</h1>
-          <Link href="/login">Login</Link><br />
-          <Link href="/register">Sign Up</Link>
-        </div>
-        )
-      }
+      <h1>logged in.</h1>
+      <SignOutButton />
+      <br />
+      <h2>Got to dashboard:</h2>
+      <Link href="/dashboard">Dashboard</Link>
+      <br />
+      My Data: <br />
+      <pre>{JSON.stringify(session, null, 2)}</pre>
     </div>
   );
 }

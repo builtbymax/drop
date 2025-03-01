@@ -4,8 +4,10 @@ import { GridColumn, GridRow } from '@/components/UI/Grid';
 import { ContentSize } from '@/components/UI/Section';
 import { Drawer as VaulDrawer } from 'vaul';
 import './Drawer.scss';
+import { AddEntryForm } from './AddEntryForm';
 
 export const Drawer = ({ isOpen, setIsOpen } : Readonly<{ isOpen: boolean; setIsOpen: (isOpen: boolean) => void; }>) => {
+
   return (
     <VaulDrawer.Root snapPoints={[0.8, 1]} shouldScaleBackground open={isOpen} onOpenChange={setIsOpen} handleOnly={true} dismissible={true}>
       <VaulDrawer.Portal>
@@ -20,8 +22,7 @@ export const Drawer = ({ isOpen, setIsOpen } : Readonly<{ isOpen: boolean; setIs
                       <VaulDrawer.Title className="title">
                         Your pasted content:
                       </VaulDrawer.Title>
-                      <label htmlFor="title">Title</label>
-                      <input type="text" name="title" placeholder="Add a title" />
+                      <AddEntryForm setIsOpen={setIsOpen} />
                     </GridColumn>
                   </GridRow>
                 </ContentSize>

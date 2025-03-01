@@ -3,7 +3,7 @@ import nodeCrypto from 'crypto';
 //import nodeCrypto from 'crypto'; .$defaultFn(() => nodeCrypto.randomUUID()),
 
 export type SelectEntry = typeof entries.$inferSelect;
-export type Entry = Pick<SelectEntry, 'id' | 'title' | 'content' | 'tags' | 'createdAt' | 'updatedAt'>;
+export type Entry = Pick<SelectEntry, 'id' | 'title' | 'content' | 'tags' | 'createdAt' | 'updatedAt' | 'type' | 'ogdata' | 'file'>;
 
 export type SelectUser = typeof user.$inferSelect;
 export type User = typeof user.$inferSelect;
@@ -80,6 +80,14 @@ export const entries = pgTable('entries', {
   title: varchar('title', { length: 255 }).notNull(),
   content: text('content'),
   tags: text('tags'),
+  ogdata: jsonb('ogdata').$type<{
+    title?: string;
+    description?: string;
+    image?: string;
+    url?: string;
+    favicon?: string;
+    siteName?: string;
+  }>(),
   file: jsonb('file').$type<{ 
     path?: string; 
     fileName?: string;

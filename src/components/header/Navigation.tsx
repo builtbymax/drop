@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { AddNewButton } from "./AddNewButton";
 import { DrawerTrigger } from "./DrawerTrigger";
 
 const Navigation = () => {
@@ -10,7 +9,6 @@ const Navigation = () => {
           <Link href="/">Home</Link>
         </li>
         <li>
-          <AddNewButton />
           <DrawerTrigger />
         </li>
       </ul>
