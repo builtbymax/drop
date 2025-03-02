@@ -2,7 +2,10 @@
 
 import { authClient } from '@/auth/client';
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, redirect } from 'next/navigation';
+import './styles.scss';
+import { Logo } from '@/components/common/logo';
+import Image from 'next/image';
 
 export default function SignUp() {
   const [email, setEmail] = useState('');
@@ -10,38 +13,47 @@ export default function SignUp() {
   const router = useRouter();
 
   const signIn = async () => {
-    const { data, error } = await authClient.signIn.email({ 
-        email, 
-        password,
-    }, { 
-        onRequest: (ctx) => { 
-         //show loading
-          console.log(ctx);
-        }, 
-        onSuccess: (ctx) => {
-          console.log(ctx);
-          router.push('/');
-          //redirect to the dashboard
-        }, 
-        onError: (ctx) => { 
-          alert(ctx.error.message); 
-        }, 
-      });
+    const { data, error } = await authClient.signIn.email({ email, password }, { 
+      onRequest: (ctx) => { 
+        //show loading
+        console.log(ctx);
+      }, 
+      onSuccess: (ctx) => {
+        console.log(ctx);
+        router.push('/');
+        //redirect to the dashboard
+      }, 
+      onError: (ctx) => { 
+        alert(ctx.error.message); 
+      }, 
+    });
 
-    if (error) {
-      console.log(error);
-    }
-
-    if (data) {
-      console.log(data);
-    }
+    if (error) console.log(error);
+    if (data) console.log(data);
   };
 
+  const { 
+    data: session, 
+  } = authClient.useSession();
+  if (session) redirect('/');
+
   return (
-    <div>
-      <input type="email" placeholder="E-Mail" value={email} onChange={(e) => setEmail(e.target.value)} />
-      <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <button onClick={signIn}>Login</button>
+    <div className="login-page-container">
+      <div className="form-column">
+        <Logo />
+        <div className="form-container">
+          <div className="form">
+            <input type="email" placeholder="E-Mail" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            <button onClick={signIn}>Login</button>
+          </div>
+        </div>
+      </div>
+      <div className="media-column">
+        <div className="media">
+          <Image src="/login-bg.jpg" width={1400} height={1400} alt="login" />
+        </div>
+      </div>
     </div>
   );
 }

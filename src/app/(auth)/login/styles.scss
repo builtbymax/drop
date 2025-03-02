@@ -1,0 +1,130 @@
+//
+//  Component: Login Page
+//  ---------------------------------------------
+
+@use '../../../styles/utils/mixins.scss' as *;
+@use '../../../styles/utils/media.scss' as *;
+@use '../../../styles/base/typo.scss' as *;
+
+//  Styles
+//  ---------------------------------------------
+
+@include media('mobile') {
+  
+  .login-page-container{
+    width: 100%;
+    display: flex;
+    min-height: 100vh;
+    height: 1px;
+    background-color: var(--base__color-1);
+    gap: 40px;
+
+    .media {
+      display: flex;
+      border-radius: 12px;
+      overflow: hidden;
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .form-container{
+      width: 100%;
+
+      .form{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      input{
+        background: #1B1B1B;
+        border: 1px solid rgba(251, 251, 251, 0.1);
+        border-radius: 4px;
+        width: 100%;
+        padding: 10px 12px;
+        color: var(--base__color-2);
+      }
+
+      button{
+        background: var(--base__color-2);
+        border: none;
+        border-radius: 4px;
+        padding: 10px 12px;
+        color: var(--base__color-1);
+        font-weight: 600;
+        cursor: pointer;
+      }
+    }
+
+  }
+
+}
+
+@include media('tablet-wide-down') {
+  
+  .login-page-container{
+    flex-direction: column;
+    padding: 20px;
+
+    .media-column{ 
+      order: 1;
+      .media{
+        aspect-ratio: 1/1;
+      }
+    }
+    .form-column{
+      order: 2; 
+
+      .logo{
+        margin-bottom: 25px;
+        display: block;
+      }
+    }
+  }
+
+}
+
+@include media('tablet-wide') {
+  
+  .login-page-container{
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 40px;
+
+    .form-column{
+      width: 40%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 0;
+
+      .form{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 320px;
+        width: 100%;
+
+        button{
+          margin-top: 10px;
+        }
+      }
+    }
+
+    .media-column{
+      display: flex;
+      width: 60%;
+      height: 100%;
+
+      .media{
+        height: 100%;
+      }
+    }
+
+  }
+
+}

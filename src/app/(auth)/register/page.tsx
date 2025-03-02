@@ -1,8 +1,14 @@
 'use client';
+
+import { redirect } from "next/navigation";
+
 //import { authClient } from '@/auth/client';
 //import { useState } from 'react';
 
 export default function SignUp() {
+  // As registration is not open, redirect to the login page
+  redirect('/login');
+
   /*const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
@@ -45,13 +51,14 @@ export default function SignUp() {
       <input type="file" onChange={(e) => setImage(e.target.files?.[0])} />
       <button onClick={signUp}>Sign Up</button>
     </div>
-  );*/
+  );
 
   return (
     <div>
       <h1>Currently registration is not open.</h1>
     </div>
   );
+  */
 }
 
 // function convertImageToBase64(image: File): string | undefined {

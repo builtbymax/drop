@@ -2,8 +2,10 @@ import { DrawerTrigger } from "../DrawerTrigger";
 import { Logo } from "@/components/common/logo";
 import './styles.scss';
 import { ContentSize } from "@/components/ui/Section";
+import { LogoutButton } from "./logout";
 
 const Navigation = () => {
+
   return (
     <header>
       <ContentSize size="fullscreen">
@@ -14,6 +16,9 @@ const Navigation = () => {
               <li>
                 <DrawerTrigger />
               </li>
+              <li>
+                <LogoutButton />
+              </li>
             </ul>
           </nav>
         </div>
@@ -21,5 +26,6 @@ const Navigation = () => {
     </header>
   );
 };
+Navigation.displayName = "Navigation";
 
 export default Navigation;
