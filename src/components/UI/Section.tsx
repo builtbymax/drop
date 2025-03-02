@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { SpacingType } from "@/types/ContentElementTypes";
 
 const ContentSize = ({ size = 'sl', children, className }: { size?: string, children: React.ReactNode, className?: string }) => {
   return (
@@ -13,7 +12,7 @@ ContentSize.displayName = 'ContentSize';
 interface SectionProps {
   children: React.ReactNode;
   className?: string;
-  spacing?: SpacingType;
+  spacing?: SectionSpaceType;
 };
 
 const Section = ({ 
@@ -75,3 +74,15 @@ const Section = ({
 Section.displayName = 'Section';
 
 export { Section, ContentSize };
+
+
+interface SectionSpaceType {
+  /**
+   * Select the spacing for this section.
+   */
+  secSpace?: ('0' | '1' | '2' | '3') | null;
+  /**
+   * Select the size for this section spacing.
+   */
+  secSpaceSize?: ('0' | '1' | '2' | '3' | '4') | null;
+};

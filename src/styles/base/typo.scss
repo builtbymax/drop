@@ -1,0 +1,44 @@
+//
+//  Typo
+//  ---------------------------------------------
+
+//  Font Families
+//  ---------------------------------------------
+
+$font-family__base: var(--font-satoshi), 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', sans-serif !default;
+$font-family__variant-1: var(--font-cal-sans-sb), 'Georgia', 'Times New Roman', Times, serif !default;
+$font-family__variant-2: var(--font-ibm-plex), 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace !default;
+
+
+//  Font Sizes
+//  ---------------------------------------------
+
+$font-size__xs: 12 !default;
+$font-size__s: 16 !default;
+$font-size__m: 18 !default;
+$font-size__l: 20 !default;
+$font-size__base: $font-size__m !default;
+
+
+//  Line Heights
+//  ---------------------------------------------
+
+$line-height__xs: 16 !default;
+$line-height__s: 20 !default;
+$line-height__m: 24 !default;
+$line-height__l: 26 !default;
+$line-height__base: $line-height__l !default;
+
+
+//  Font Weights
+//  ---------------------------------------------
+
+$font-weight__base: 400 !default;
+$font-weight__thin: 100 !default;
+$font-weight__light: 300 !default;
+$font-weight__regular: 400 !default;
+$font-weight__medium: 500 !default;
+$font-weight__semi-bold: 600 !default;
+$font-weight__bold: 700 !default;
+$font-weight__extra-bold: 800 !default;
+$font-weight__black: 900 !default;

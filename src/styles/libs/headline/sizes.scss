@@ -1,0 +1,150 @@
+//
+//  Styles: Headline
+//  ---------------------------------------------
+
+@use 'variables' as *;
+@use '../../utils/media.scss' as *;
+@use '../../utils/mixins.scss' as *;
+
+@include media('mobile') {
+
+  @if ($headline__default__hyphens == true) {
+    h1, h2, h3, h4, h5, h6 {
+      hyphens: auto;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    > span.special-string{ font-family: var(--font-ibm-plex); font-style: italic; font-weight: 400; }
+  }
+
+  h1 {
+    font-weight: $headline__default__h1__font-weight;
+    font-family: $headline__default__h1__font-family;
+    color: $headline__default__h1__color;
+  }
+
+  h2 {
+    font-weight: $headline__default__h2__font-weight;
+    font-family: $headline__default__h2__font-family;
+    color: $headline__default__h2__color;
+  }
+
+  h3 {
+    font-weight: $headline__default__h3__font-weight;
+    font-family: $headline__default__h3__font-family;
+    color: $headline__default__h3__color;
+  }
+
+  h4 {
+    font-weight: $headline__default__h4__font-weight;
+    font-family: $headline__default__h4__font-family;
+    color: $headline__default__h4__color;
+  }
+
+  h5 {
+    font-weight: $headline__default__h5__font-weight;
+    font-family: $headline__default__h5__font-family;
+    color: $headline__default__h5__color;
+  }
+
+  h6 {
+    font-weight: $headline__default__h6__font-weight;
+    font-family: $headline__default__h6__font-family;
+    color: $headline__default__h6__color;
+  }
+
+}
+
+@include media('tablet-down') {
+
+  h1 {
+    @include font(
+      $fontSizeValue: $headline__default__h1__font-size__tablet-down,
+      $lineHeightValue: $headline__default__h1__line-height__tablet-down,
+    );
+  }
+
+  h2 {
+    @include font(
+      $fontSizeValue: $headline__default__h2__font-size__tablet-down,
+      $lineHeightValue: $headline__default__h2__line-height__tablet-down,
+    );
+  }
+
+  h3 {
+    @include font(
+      $fontSizeValue: $headline__default__h3__font-size__tablet-down,
+      $lineHeightValue: $headline__default__h3__line-height__tablet-down,
+    );
+  }
+
+  h4 {
+    @include font(
+      $fontSizeValue: $headline__default__h4__font-size__tablet-down,
+      $lineHeightValue: $headline__default__h4__line-height__tablet-down,
+    );
+  }
+
+  h5 {
+    @include font(
+      $fontSizeValue: $headline__default__h5__font-size__tablet-down,
+      $lineHeightValue: $headline__default__h5__line-height__tablet-down,
+    );
+  }
+
+  h6 {
+    @include font(
+      $fontSizeValue: $headline__default__h6__font-size__tablet-down,
+      $lineHeightValue: $headline__default__h6__line-height__tablet-down,
+    );
+  }
+
+}
+
+// min-768
+@include media('tablet') {
+
+  h1 {
+    @include font(
+      $fontSizeValue: $headline__default__h1__font-size__tablet,
+      $lineHeightValue: $headline__default__h1__line-height__tablet,
+    );
+  }
+
+  h2 {
+    @include font(
+      $fontSizeValue: $headline__default__h2__font-size__tablet,
+      $lineHeightValue: $headline__default__h2__line-height__tablet,
+    );
+  }
+
+  h3 {
+    @include font(
+      $fontSizeValue: $headline__default__h3__font-size__tablet,
+      $lineHeightValue: $headline__default__h3__line-height__tablet,
+    );
+  }
+
+  h4 {
+    @include font(
+      $fontSizeValue: $headline__default__h4__font-size__tablet,
+      $lineHeightValue: $headline__default__h4__line-height__tablet,
+    );
+  }
+
+  h5 {
+    @include font(
+      $fontSizeValue: $headline__default__h5__font-size__tablet,
+      $lineHeightValue: $headline__default__h5__line-height__tablet,
+    );
+  } 
+
+  h6 {
+    @include font(
+      $fontSizeValue: $headline__default__h6__font-size__tablet,
+      $lineHeightValue: $headline__default__h6__line-height__tablet,
+    );
+  }
+
+}

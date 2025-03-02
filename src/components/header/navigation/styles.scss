@@ -1,0 +1,51 @@
+//
+//  Component: Navigation
+//  ---------------------------------------------
+
+@use '../../../styles/utils/mixins.scss' as *;
+@use '../../../styles/utils/media.scss' as *;
+@use '../../../styles/base/typo.scss' as *;
+
+//  Styles
+//  ---------------------------------------------
+
+@include media('mobile') {
+
+  .navigation-container{
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    .logo{
+      display: block;
+      width: 80px;
+      svg {
+        width: 100%;
+      }
+    }
+
+    nav.navigation{
+      ul{
+        list-style: none;
+        display: flex;
+        li{
+          a,button{
+            background-color: var(--base__color-1);
+            color: var(--base__color-2);
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 0 none;
+            cursor: pointer;
+            font-weight: $font-weight__semi-bold;
+            @include font(14, 16);
+          }
+        }
+      }
+    }
+  }
+
+}

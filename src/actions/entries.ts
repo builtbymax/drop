@@ -3,7 +3,7 @@
 import { db } from '@/db/db';
 import { entries } from '@/db/schema';
 import { getUserId } from './server';
-import { eq } from 'drizzle-orm';
+import { and, desc, eq } from 'drizzle-orm';
 import getOGData from './get-og-data';
 import { ImageObject } from 'open-graph-scraper/types';
 import { getFaviconFromUrl } from '@/utils/check-urls';
@@ -62,4 +62,29 @@ export const removeLinkFromDatabase = async (entryId: string) => {
       console.error('Error deleting entry:', error);
       throw new Error('Error deleting entry');
     });
-}
+};
+
+export const getAllEntries = async (folderId: string | null) => {
+  const userId = await getUserId();
+  if (!userId) return;
+
+  const whereConditions = [
+    eq(entries.userId, userId),
+  ];
+
+  if (folderId) {
+    whereConditions.push(eq(entries.folderId, folderId));
+  };
+
+  const data = await db
+  .select()
+  .from(entries)
+  .orderBy(desc(entries.createdAt))
+  .where(and(...whereConditions)).catch((error) => {
+    console.error('Error getting entries:', error);
+    throw new Error('Error getting entries');
+  });
+
+  if (!data) return;
+  return data;
+};

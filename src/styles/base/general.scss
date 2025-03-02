@@ -1,0 +1,32 @@
+//
+//  Generals
+//  ---------------------------------------------
+
+@use 'typo.scss' as *;
+@use 'colors.scss' as *;
+@use '../utils/colors.scss' as functions;
+
+
+//  Variables
+//  ---------------------------------------------
+
+$component__general__default__html__overflow: auto !default;
+$component__general__default__html__scroll-behavior: smooth !default;
+$component__general__default__html__font-size: 100% !default;
+
+$component__general__default__all__box-sizing: border-box !default;
+$component__general__default__all__margin: 0 !default;
+$component__general__default__all__padding: 0 !default;
+$component__general__default__all__webkit-font-smoothing: antialiased !default;
+$component__general__default__all__moz-osx-font-smoothing: grayscale !default;
+$component__general__default__all__webkit-text-size-adjust: 100% !default;
+
+$component__general__default__body__font-size: $font-size__base !default;
+$component__general__default__body__line-height: $line-height__base !default;
+$component__general__default__body__font-family: $font-family__base !default;
+$component__general__default__body__text-color: var(--font-color__base) !default;
+$component__general__default__body__background-color: functions.color($base, 2) !default;
+$component__general__default__body__min-width: 320px !default;
+
+$component__general__default__body__padding__xs: 63px !default;
+$component__general__default__body__padding__l: 80px !default;

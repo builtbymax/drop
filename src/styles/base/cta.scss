@@ -1,0 +1,172 @@
+@use 'typo.scss' as *;
+@use '../utils/media.scss' as *;
+@use '../utils/mixins.scss' as *;
+
+:root{
+  --cta-default__border: 2px solid var(--project__color-3);
+  --cta-default__background-color: var(--project__color-3);
+  --cta-default__color: var(--project__color-2);
+}
+
+@include media('mobile') {
+
+  .cta {
+    width: auto;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    @include font(16, 18);
+    font-family: $font-family__base;
+    font-weight: $font-weight__bold;
+    border-radius: 100vmax;
+
+    transition:
+      background-color 0.3s ease-in-out,
+      color 0.3s ease-in-out,
+      border 0.3s ease-in-out;
+    
+    border: var(--cta-default__border);
+    background-color: var(--cta-default__background-color);
+    color: var(--cta-default__color);
+
+    --link-icon__color: var(--cta-default__color);
+
+    &.layout-0{
+      --cta-default__border: 2px solid var(--base__color-1);
+      --cta-default__background-color: var(--base__color-1);
+      --cta-default__color: var(--base__color-2);
+
+      --link-icon__color: var(--base__color-2);
+    }
+    &.layout-1{
+      --cta-default__border: 2px solid var(--base__color-1);
+      --cta-default__background-color: transparent;
+      --cta-default__color: var(--base__color-1);
+
+      --link-icon__color: var(--base__color-1);
+    }
+    &.layout-2{
+      padding: 0;
+
+      --cta-default__border: 2px solid transparent;
+      --cta-default__background-color: transparent;
+      --cta-default__color: var(--base__color-1);
+
+      --link-icon__color: var(--base__color-1);
+    }
+
+    &.size-s{
+      @include font(14, 16);
+      padding: 8px 14px;
+    }
+
+    &.icon-right, &.icon-left{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+
+      svg{
+        min-width: 14px; 
+        path{ transition: all .25s ease-in-out; }
+      }
+    }
+
+    &.icon-left{
+      svg{ order: 1; } span{ order: 2; }
+    }
+
+    &.icon-right{
+      span{ order: 1; } svg{ order: 2; }
+    }
+
+    &.inline{
+      color: var(--base__color-1);
+      text-decoration: underline;
+      font-weight: $font-weight__semi-bold;
+    }
+  }
+
+}
+
+@include media('tablet-wide-down') {
+
+}
+
+@include media('tablet-wide') {
+  
+  .cta{
+    &:hover{
+      --cta-default__border: 2px solid var(--base__color-2);
+      --cta-default__background-color: var(--base__color-2);
+      --cta-default__color: var(--base__color-1);
+
+      --link-icon__color: var(--base__color-1);
+
+      &.layout-0{
+        --cta-default__border: 2px solid var(--base__color-1);
+        --cta-default__background-color: transparent; //var(--base__color-2);
+        --cta-default__color: var(--base__color-1);
+  
+        --link-icon__color: var(--base__color-1);
+      }
+
+      &.layout-1{
+        --cta-default__border: 2px solid var(--base__color-1);
+        --cta-default__background-color: var(--base__color-1);
+        --cta-default__color: var(--base__color-2);
+
+        --link-icon__color: var(--base__color-2);
+      }
+
+      &.layout-2{
+        --cta-default__border: 2px solid transparent;
+        --cta-default__background-color: var(--base__color-3);
+        --cta-default__color: var(--base__color-2);
+
+        --link-icon__color: var(--base__color-2);
+      }
+    }
+  }
+
+}
+
+
+
+//
+// Container
+// -----------------------------------------------------------------------
+
+$component__cta-container__default__width: 100% !default;
+$component__cta-container__default__margin: 15px 0 0 !default;
+$component__cta-container__default__display: flex !default;
+$component__cta-container__default__flex-flow: row wrap !default;
+$component__cta-container__default__align-items: center !default;
+$component__cta-container__default__justify-content: flex-start !default;
+$component__cta-container__default__gap: 15px !default;
+$component__cta-container__default__align-center__justify-content: center !default;
+$component__cta-container__default__align-right__justify-content: flex-end !default;
+
+@include media('mobile') {
+
+  .cta-container{
+    width: $component__cta-container__default__width;
+    margin: $component__cta-container__default__margin;
+    display: $component__cta-container__default__display;
+    flex-flow: $component__cta-container__default__flex-flow;
+    align-items: $component__cta-container__default__align-items;
+    justify-content: $component__cta-container__default__justify-content;
+    gap: $component__cta-container__default__gap;
+
+    &.alignment-center{
+      justify-content: $component__cta-container__default__align-center__justify-content;
+    }
+
+    &.alignment-right{
+      justify-content: $component__cta-container__default__align-right__justify-content;
+    }
+  }
+
+}

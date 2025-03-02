@@ -2,15 +2,58 @@
 //  Styles: App
 //  ---------------------------------------------
 
-@use "sass:meta";
-@use 'utils/utilities.scss';
-@use 'colors/colors.scss';
+@use 'utils/mixins.scss' as *;
+@use 'utils/functions.scss' as *;
+@use 'utils/media.scss' as *;
+@use 'utils/grid.scss' as *;
+@use 'utils/container.scss' as *;
+@use 'base/colors.scss' as *;
+@use 'base/general.scss' as *;
+@use 'base/typo.scss' as *;
+@use 'base/cta.scss' as *;
+@use 'libs/_libs.scss' as *;
+
+//
+//  Global Styles
+//  ---------------------------------------------
 
 *{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: $component__general__default__all__margin;
+  padding: $component__general__default__all__padding;
+  box-sizing: $component__general__default__all__box-sizing;
+  scroll-behavior: $component__general__default__html__scroll-behavior;
+
+  &::selection {
+    background-color: var(--project__color-1);
+    color: var(--base__color-2);
+  }
 }
+
+html{
+  width: 100%;
+  height: 100%;
+  font-size: $component__general__default__html__font-size;
+}
+
+body{
+  width: 100%;
+  font-family: $component__general__default__body__font-family;
+  background-color: $component__general__default__body__background-color;
+  color: $component__general__default__body__text-color;
+  min-width: $component__general__default__body__min-width;
+
+  -webkit-font-smoothing: $component__general__default__all__webkit-font-smoothing;
+  -moz-osx-font-smoothing: $component__general__default__all__moz-osx-font-smoothing;
+
+  @include font(
+    $component__general__default__body__font-size,
+    $component__general__default__body__line-height
+  );
+}
+
+//
+//  Global Classes
+//  ---------------------------------------------
 
 body, .vaul-drawer-wrapper{
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;

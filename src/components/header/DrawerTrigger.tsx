@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from "react";
-import Drawer from "@/components/entries/drawer/Drawer";
+import Drawer from "@/components/entries/drawer";
 
 export const DrawerTrigger = () => {
   const [isOpen, setIsOpen] = useState(false);

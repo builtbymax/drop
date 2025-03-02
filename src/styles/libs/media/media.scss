@@ -1,0 +1,80 @@
+//
+//  Media Element
+//  ---------------------------------------------
+
+@use "variables" as *;
+@use "../../utils/mixins.scss" as *;
+
+//  Mixins & Functions
+//  ---------------------------------------------
+
+@mixin create-media-element(
+  $image: $component__media__default__image,
+  $video: $component__media__default__video,
+  $iframe: $component__media__default__iframe,
+  $audio: $component__media__default__audio,
+  $caption: $component__media__default__caption,
+) {
+  .media{
+    display: $component__media__default__display;
+    flex-direction: $component__media__default__flex-direction;
+    width: $component__media__default__width;
+    
+    @if ($image == true) {
+      img{
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    @if ($video == true) {
+      video{
+        width: 100%;
+      }
+    }
+
+    @if ($iframe == true) {
+      &.iframe{
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        padding-top: $component__media__default__iframe__ratio;
+        height: 0;
+        position: relative;
+        z-index: 1;
+        iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 2;
+        }
+      }
+    }
+
+    @if ($audio == true) {
+      audio{
+        width: 100%;
+      }
+    }
+
+    figcaption, .media-caption {
+      margin: $component__media__figcaption__margin;
+      width: $component__media__figcaption__width;
+      padding: $component__media__figcaption__padding;
+      max-width: $component__media__figcaption__max-width;
+      font-weight: $component__media__figcaption__font-weight;
+      font-family: $component__media__figcaption__font-family;
+      color: $component__media__figcaption__text-color;
+
+      @include font(
+        $fontSizeValue: $component__media__figcaption__font-size,
+        $lineHeightValue: $component__media__figcaption__line-height,
+      );
+    }
+
+  }
+}
+
+@include create-media-element();

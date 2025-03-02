@@ -1,9 +1,9 @@
 'use client';
 
-import { GridColumn, GridRow } from '@/components/UI/Grid';
-import { ContentSize } from '@/components/UI/Section';
+import { GridColumn, GridRow } from '@/components/ui/Grid';
+import { ContentSize } from '@/components/ui/Section';
 import { Drawer as VaulDrawer } from 'vaul';
-import './Drawer.scss';
+import './styles.scss';
 import { AddEntryForm } from './AddEntryForm';
 
 export const Drawer = ({ isOpen, setIsOpen } : Readonly<{ isOpen: boolean; setIsOpen: (isOpen: boolean) => void; }>) => {

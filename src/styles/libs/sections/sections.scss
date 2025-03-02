@@ -1,0 +1,99 @@
+//
+//  Sections
+//  ---------------------------------------------
+
+@use 'variables' as *;
+@use '../../utils/media.scss' as *;
+
+@include media('mobile') {
+
+  // Section Container
+  // ---------------------------------------------
+
+  section.section-container{
+    display: $component__sections__default__display;
+    width: $component__sections__default__width;
+    position: $component__sections__default__position;
+
+    &.spacing-above-remove{ padding-top: $component__sections__default__spacing-above__remove; }
+    &.spacing-below-remove{ padding-bottom: $component__sections__default__spacing-below__remove; }
+    
+    &[class*="#{$component__sections__default__background__class}1"] {
+      background-color: $component__sections__default__background__color__1;
+      --font-color__base: #{$component__sections__default__background__color__1__font-color__base};
+    }
+  }
+
+
+  // Anchor Target (for fixed header)
+  // ---------------------------------------------
+
+  .anchor-target{
+    position: $component__sections__default__anchor-target__position;
+    z-index: $component__sections__default__anchor-target__z-index;
+  }
+
+}
+
+
+// max 1024
+@include media('tablet-wide-down') {
+
+  section.section-container{
+    padding: $component__sections__default__margin__tablet-down;
+
+    &.spacing-above-s{ padding-top: $component__sections__default__spacing-above__s__tablet-down; }
+    &.spacing-above-m{ padding-top: $component__sections__default__spacing-above__m__tablet-down; }
+    &.spacing-above-l{ padding-top: $component__sections__default__spacing-above__l__tablet-down; }
+
+    &.spacing-below-s{ padding-bottom: $component__sections__default__spacing-below__s__tablet-down; }
+    &.spacing-below-m{ padding-bottom: $component__sections__default__spacing-below__m__tablet-down; }
+    &.spacing-below-l{ padding-bottom: $component__sections__default__spacing-below__l__tablet-down; }
+    
+    &[class*="#{$component__sections__default__background__class}"] {
+      &.spacing-above-s{ margin-top: $component__sections__default__spacing-above__s__tablet-down; }
+      &.spacing-above-m{ margin-top: $component__sections__default__spacing-above__m__tablet-down; }
+      &.spacing-above-l{ margin-top: $component__sections__default__spacing-above__l__tablet-down; }
+  
+      &.spacing-below-s{ margin-bottom: $component__sections__default__spacing-below__s__tablet-down; }
+      &.spacing-below-m{ margin-bottom: $component__sections__default__spacing-below__m__tablet-down; }
+      &.spacing-below-l{ margin-bottom: $component__sections__default__spacing-below__l__tablet-down; }
+    }
+  }
+
+  .anchor-target{ 
+    scroll-margin-top: $component__sections__default__anchor-target__top__tablet-down;
+  }
+
+}
+
+// min 1024
+@include media('tablet-wide') {
+
+  section.section-container{
+    padding: $component__sections__default__margin__tablet;
+
+    &.spacing-above-s{ padding-top: $component__sections__default__spacing-above__s__tablet; }
+    &.spacing-above-m{ padding-top: $component__sections__default__spacing-above__m__tablet; }
+    &.spacing-above-l{ padding-top: $component__sections__default__spacing-above__l__tablet; }
+
+    &.spacing-below-s{ padding-bottom: $component__sections__default__spacing-below__s__tablet; }
+    &.spacing-below-m{ padding-bottom: $component__sections__default__spacing-below__m__tablet; }
+    &.spacing-below-l{ padding-bottom: $component__sections__default__spacing-below__l__tablet; }
+    
+    &[class*="#{$component__sections__default__background__class}"] {
+      &.spacing-above-s{ margin-top: $component__sections__default__spacing-above__s__tablet-down; }
+      &.spacing-above-m{ margin-top: $component__sections__default__spacing-above__m__tablet-down; }
+      &.spacing-above-l{ margin-top: $component__sections__default__spacing-above__l__tablet-down; }
+  
+      &.spacing-below-s{ margin-bottom: $component__sections__default__spacing-below__s__tablet-down; }
+      &.spacing-below-m{ margin-bottom: $component__sections__default__spacing-below__m__tablet-down; }
+      &.spacing-below-l{ margin-bottom: $component__sections__default__spacing-below__l__tablet-down; }
+    }
+  }
+
+  .anchor-target{ 
+    scroll-margin-top: $component__sections__default__anchor-target__top__tablet;
+  }
+
+}

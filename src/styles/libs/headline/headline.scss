@@ -1,0 +1,117 @@
+//
+//  Element: "Headline"
+//  ---------------------------------------------
+
+@use 'variables' as *;
+@use 'sizes' as *;
+@use '../../utils/media.scss' as *;
+@use '../../utils/mixins.scss' as *;
+
+//  Styles
+//  ---------------------------------------------
+
+@include media('mobile') {
+
+  .headline-element-container{
+    width: $headline-element__container__width;
+    max-width: $headline-element__container__max-width;
+    display: $headline-element__container__display;
+    flex-direction: $headline-element__container__flex-direction;
+    align-items: $headline-element__container__align-items;
+    justify-content: $headline-element__container__justify-content;
+    text-align: $headline-element__container__text-align;
+
+    .roofline{
+      max-width: $headline-element__roofline__max-width;
+      width: $headline-element__roofline__width;
+      margin: $headline-element__roofline__margin;
+      order: $headline-element__roofline__order;
+      padding: $headline-element__roofline__padding;
+      font-weight: $headline-element__roofline__font-weight;
+      font-family: $headline-element__roofline__font-family;
+      color: $headline-element__roofline__font-color;
+      text-decoration: $headline-element__roofline__text-decoration;
+      text-transform: $headline-element__roofline__text-transform;
+
+      @include font(
+        $headline-element__roofline__font-size,
+        $headline-element__roofline__line-height,
+      );
+
+      &:empty{ display: $headline-element__default__empty__display; }
+    }
+
+    h1,h2,h3,h4,h5,h6 { 
+      color: $headline-element__headline__font-color;
+      order: $headline-element__headline__order;
+    }
+
+    .subline, p.subline, p:not(.roofline){
+      width: $headline-element__subline__width;
+      max-width: $headline-element__subline__max-width;
+      margin: $headline-element__subline__margin;
+      padding: $headline-element__subline__padding;
+      order: $headline-element__subline__order;
+      font-weight: $headline-element__subline__font-weight;
+      font-family: $headline-element__subline__font-family;
+      color: $headline-element__subline__font-color;
+
+      @include font(
+        $headline-element__subline__font-size,
+        $headline-element__subline__line-height,
+      );
+
+      &:empty{ display: $headline-element__default__empty__display; }
+    }
+
+    .cta-container{
+      order: $headline-element__default__cta-container__order;
+      margin: $headline-element__default__cta-container__margin;
+    } 
+
+    &.alignment-center{
+      align-items: $headline-element__alignment-center__align-items;
+      justify-content: $headline-element__alignment-center__justify-content;
+      text-align: $headline-element__alignment-center__text-align;
+
+      .cta-container{
+        align-items: $headline-element__alignment-center__align-items;
+        justify-content: $headline-element__alignment-center__justify-content;
+      }
+    }
+
+    &.alignment-right{
+      align-items: $headline-element__alignment-right__align-items;
+      justify-content: $headline-element__alignment-right__justify-content;
+      text-align: $headline-element__alignment-right__text-align;
+
+      .cta-container{
+        align-items: $headline-element__alignment-right__align-items;
+        justify-content: $headline-element__alignment-right__justify-content;
+      }
+    }
+  }
+
+}
+
+// max-767
+@include media('tablet-down') {
+
+  .headline-element-container{
+    &.inline-component{
+      margin: $headline-element__container__inline-element__margin__tablet-down;
+    }
+  }
+
+}
+
+// min-768
+@include media('tablet') {
+
+  .headline-element-container{
+    &.inline-component{
+      margin: $headline-element__container__inline-element__margin__tablet;
+    }
+  }
+
+}

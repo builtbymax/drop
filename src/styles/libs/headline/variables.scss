@@ -1,0 +1,115 @@
+//
+//  Element: "Headline Container"
+//  ---------------------------------------------
+
+@use '../../base/typo.scss' as *;
+
+//  Container Variables
+//  ---------------------------------------------
+
+$headline-element__container__width: 100% !default;
+$headline-element__container__max-width: 100% !default;
+$headline-element__container__display: flex !default;
+$headline-element__container__flex-direction: column !default;
+$headline-element__container__align-items: flex-start !default;
+$headline-element__container__justify-content: flex-start !default;
+$headline-element__container__text-align: left !default;
+$headline-element__container__inline-element__margin__tablet-down: 0 0 35px !default;
+$headline-element__container__inline-element__margin__tablet: 0 0 60px !default;
+
+$headline-element__default__empty__display: none !default;
+
+$headline-element__roofline__width: 100% !default;
+$headline-element__roofline__max-width: 100% !default;
+$headline-element__roofline__text-decoration: none !default;
+$headline-element__roofline__text-transform: uppercase !default;
+$headline-element__roofline__margin: 0 0 15px !default;
+$headline-element__roofline__padding: 0 !default;
+$headline-element__roofline__order: 1 !default;
+$headline-element__roofline__font-size: $font-size__xs !default;
+$headline-element__roofline__line-height: $line-height__xs !default;
+$headline-element__roofline__font-weight: $font-weight__bold !default;
+$headline-element__roofline__font-family: $font-family__base !default;
+$headline-element__roofline__font-color: var(--font-color__base) !default;
+
+$headline-element__headline__order: 2 !default;
+$headline-element__headline__font-color: var(--base__color-1) !default;
+
+$headline-element__subline__width: 100% !default;
+$headline-element__subline__max-width: 100% !default;
+$headline-element__subline__margin: 40px 0 0 !default;
+$headline-element__subline__padding: 0 !default;
+$headline-element__subline__order: 3 !default;
+$headline-element__subline__font-size: $font-size__base !default;
+$headline-element__subline__line-height: $line-height__base !default;
+$headline-element__subline__font-weight: $font-weight__regular !default;
+$headline-element__subline__font-family: $font-family__base !default;
+$headline-element__subline__font-color: var(--font-color__base) !default;
+
+$headline-element__default__cta-container__order: 4 !default;
+$headline-element__default__cta-container__margin: 30px 0 0 !default;
+
+$headline-element__alignment-center__align-items: center !default;
+$headline-element__alignment-center__justify-content: center !default;
+$headline-element__alignment-center__text-align: center !default;
+$headline-element__alignment-right__align-items: flex-end !default;
+$headline-element__alignment-right__justify-content: flex-end !default;
+$headline-element__alignment-right__text-align: right !default;
+
+//
+//  Headline Variables
+//  ---------------------------------------------
+
+$headline__default__hyphens: true !default;
+$headline__default__color: var(--base__color-1) !default;
+
+$headline__default__h1__font-weight: $font-weight__bold !default;
+$headline__default__h2__font-weight: $font-weight__bold !default;
+$headline__default__h3__font-weight: $font-weight__bold !default;
+$headline__default__h4__font-weight: $font-weight__bold !default;
+$headline__default__h5__font-weight: $font-weight__bold !default;
+$headline__default__h6__font-weight: $font-weight__bold !default;
+
+$headline__default__h1__font-family: $font-family__variant-1 !default;
+$headline__default__h2__font-family: $font-family__variant-1 !default;
+$headline__default__h3__font-family: $font-family__variant-1 !default;
+$headline__default__h4__font-family: $font-family__variant-1 !default;
+$headline__default__h5__font-family: $font-family__variant-1 !default;
+$headline__default__h6__font-family: $font-family__variant-1 !default;
+
+$headline__default__h1__color: var(--base__color-3) !default;
+$headline__default__h2__color: var(--base__color-3) !default;
+$headline__default__h3__color: var(--base__color-3) !default;
+$headline__default__h4__color: var(--base__color-3) !default;
+$headline__default__h5__color: var(--base__color-3) !default;
+$headline__default__h6__color: var(--base__color-3) !default;
+
+$headline__default__h1__font-size__tablet-down: 40 !default;
+$headline__default__h1__line-height__tablet-down: 48 !default;
+$headline__default__h1__font-size__tablet: 64 !default;
+$headline__default__h1__line-height__tablet: 72 !default;
+
+$headline__default__h2__font-size__tablet-down: 32 !default;
+$headline__default__h2__line-height__tablet-down: 40 !default;
+$headline__default__h2__font-size__tablet: 48 !default;
+$headline__default__h2__line-height__tablet: 60 !default;
+
+$headline__default__h3__font-size__tablet-down: 24 !default;
+$headline__default__h3__line-height__tablet-down: 32 !default;
+$headline__default__h3__font-size__tablet: 36 !default;
+$headline__default__h3__line-height__tablet: 48 !default;
+
+$headline__default__h4__font-size__tablet-down: 20 !default;
+$headline__default__h4__line-height__tablet-down: 28 !default;
+$headline__default__h4__font-size__tablet: 28 !default;
+$headline__default__h4__line-height__tablet: 36 !default;
+
+$headline__default__h5__font-size__tablet-down: 16 !default;
+$headline__default__h5__line-height__tablet-down: 24 !default;
+$headline__default__h5__font-size__tablet: 24 !default;
+$headline__default__h5__line-height__tablet: 32 !default;
+
+$headline__default__h6__font-size__tablet-down: 14 !default;
+$headline__default__h6__line-height__tablet-down: 20 !default;
+$headline__default__h6__font-size__tablet: 20 !default;
+$headline__default__h6__line-height__tablet: 28 !default;

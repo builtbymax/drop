@@ -1,0 +1,30 @@
+//
+//  Media Element
+//  ---------------------------------------------
+
+@use '../../base/typo.scss' as *;
+
+//  Variables
+//  ---------------------------------------------
+
+$component__media__default__image: true !default;
+$component__media__default__video: true !default;
+$component__media__default__iframe: true !default;
+$component__media__default__audio: true !default;
+$component__media__default__caption: true !default;
+
+$component__media__default__iframe__ratio: 56.25% !default;
+
+$component__media__figcaption__margin: 15px 0 0 !default;
+$component__media__figcaption__width: 100% !default;
+$component__media__figcaption__max-width: 750px !default;
+$component__media__figcaption__padding: 0 !default;
+$component__media__figcaption__font-size: $font-size__s !default;
+$component__media__figcaption__line-height: $line-height__s !default;
+$component__media__figcaption__font-weight: false !default;
+$component__media__figcaption__font-family: false !default;
+$component__media__figcaption__text-color: rgba(var(--base__color-1__rgb), 60%) !default;
+
+$component__media__default__display: flex !default;
+$component__media__default__flex-direction: column !default;
+$component__media__default__width: 100% !default;

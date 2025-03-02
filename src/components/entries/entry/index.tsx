@@ -29,18 +29,20 @@ export const Entry = ({ entry }: { entry: EntryType }) => {
       <TopContent className={'grid'} type={entry.type as string}>
         <Detail handleDetail={handleDetail} />
       </TopContent>
-      <div className="media">
-        { entry.ogdata?.image && <img src={entry.ogdata?.image} alt={entry.title} width={100} height={100} /> }
-      </div>
+      { entry.ogdata?.image && (
+        <div className="media">
+          <img src={entry.ogdata?.image} alt={entry.title} width={100} height={100} />
+        </div>
+      )}
       {type === 'link' && (
         <BottomContent>
           <>
-            <Link href={entry.content as string} target='_blank'>
+            <Link className="favicon-link" href={entry.content as string} target='_blank'>
               <Favicon src={entry?.ogdata?.favicon} />
-              {sliceText(entry?.ogdata?.url, 50)}
+              {sliceText(entry?.ogdata?.url, 32)}
             </Link>
-            <h3>{sliceText(entry?.ogdata?.title, 25)}</h3>
-            <p>{entry.title}</p>
+            { entry?.ogdata?.title && <h3>{ sliceText(entry?.ogdata?.title, 50) }</h3> }
+            { sliceText(entry.title, 50) && <p>{ sliceText(entry.title, 50) }</p> }
             <DeleteEntryButton entryId={entry.id} />
             { debug && <button onClick={() => handleClick(entry.content)}>getOgData</button> }
           </>

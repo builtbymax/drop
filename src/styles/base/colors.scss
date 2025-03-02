@@ -1,0 +1,48 @@
+@use '../utils/colors' as colors;
+@use "sass:map";
+
+//
+//  Colors
+//  ---------------------------------------------
+
+$base: (
+  1: #151515,
+  2: #FBFBFB,
+  3: #1B1B1B,
+  4: #F6F6F6,
+  5: #E6EDDD,
+  6: #1D1D1D,
+  7: #1A1919,
+  8: #141414,
+);
+
+// Create RGB & XML map if needed
+$base-rgb: colors.getMapWithRGB($base);
+$base-xml: false; // getMapWithXML($base);
+
+//  Project colors
+//  ---------------------------------------------
+
+$project: (
+  1: #FFF5B4,
+  2: #CD0F48,
+  // 3: skyblue,
+);
+
+// Create RGB & XML map if needed
+$project-rgb: colors.getMapWithRGB($project);
+$project-xml: false; // getMapWithXML($project);
+
+
+// Create the CSS Variable set
+// ----------------------------------------------
+
+:root{
+  @include colors.createCSSVariableSet(base, $base, $base-rgb, $base-xml);
+  @include colors.createCSSVariableSet(project, $project, $project-rgb, $project-xml);
+
+  //  Global Colors
+  --font-color__base: var(--base__color-1);
+  --icon-color__base: var(--base__color-1);
+  --logo__base-color: var(--base__color-1);
+}
