@@ -4,7 +4,7 @@ import { GridColumn, GridRow } from '@/components/ui/Grid';
 import { ContentSize } from '@/components/ui/Section';
 import { Drawer as VaulDrawer } from 'vaul';
 import './styles.scss';
-import { AddEntryForm } from './AddEntryForm';
+import { AddEntryForm } from './entry-form';
 
 export const Drawer = ({ isOpen, setIsOpen } : Readonly<{ isOpen: boolean; setIsOpen: (isOpen: boolean) => void; }>) => {
 
@@ -19,9 +19,7 @@ export const Drawer = ({ isOpen, setIsOpen } : Readonly<{ isOpen: boolean; setIs
                 <ContentSize size="fullscreen">
                   <GridRow>
                     <GridColumn columnSize={{ xs: 12 }}>
-                      <VaulDrawer.Title className="title">
-                        Your pasted content:
-                      </VaulDrawer.Title>
+                      <VaulDrawer.Title className="title">Add Entry</VaulDrawer.Title>
                       <AddEntryForm setIsOpen={setIsOpen} />
                     </GridColumn>
                   </GridRow>

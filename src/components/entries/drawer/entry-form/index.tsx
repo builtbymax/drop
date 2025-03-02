@@ -3,6 +3,7 @@
 import { addLinkToDatabase } from '@/actions/entries';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useRef, useState } from 'react';
+import './styles.scss';
 
 export const AddEntryForm = ({ setIsOpen }:{ setIsOpen: (isOpen: boolean) => void; }) => {
   const queryClient = useQueryClient();
@@ -37,12 +38,15 @@ export const AddEntryForm = ({ setIsOpen }:{ setIsOpen: (isOpen: boolean) => voi
   };
   
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="title">Title</label>
-      <input type="text" name="title" placeholder="Add a title" ref={titleInputRef} />
-      <br />
-      <label htmlFor="content">Content</label>
-      <input type="text" name="content" placeholder="Add a link" ref={contentInputRef} />
+    <form className="entry-form" onSubmit={handleSubmit}>
+      <div className="form-element">
+        <label htmlFor="title">Title</label>
+        <input type="text" name="title" placeholder="Add a title" ref={titleInputRef} />
+      </div>
+      <div className="form-element">
+        <label htmlFor="content">Content</label>
+        <input type="text" name="content" placeholder="Add a link" ref={contentInputRef} />
+      </div>
       <button type="submit">Add New Entry</button>
       <p>{error}</p>
     </form>

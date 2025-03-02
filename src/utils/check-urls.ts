@@ -21,12 +21,16 @@ export const getUrlDomain = (url?: string) => {
 }
 
 export const getFaviconFromUrl = (faviconSrc?: string | null, origin?: string) => {
-  if (!faviconSrc || !faviconSrc.startsWith('http://') && !faviconSrc.startsWith('https://') && !faviconSrc.startsWith('//')) {
+  if (!faviconSrc) {
     return `${stripRequestUrlToOrigin(origin)}/favicon.ico`;
   };
 
   if (faviconSrc.startsWith('//')) {
     return `https:${faviconSrc}`;
+  }
+
+  if (faviconSrc.startsWith('/')) {
+    return `${stripRequestUrlToOrigin(origin)}${faviconSrc}`;
   }
 
   return faviconSrc;

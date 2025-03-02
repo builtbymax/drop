@@ -11,7 +11,7 @@ import { sliceText } from '@/utils/text';
 
 export const Entry = ({ entry }: { entry: EntryType }) => {
   const type = entry.type ? entry.type : 'link';
-  const debug = false;
+  const debug = true;
 
   const handleClick = async (entryUrl: string | null) => {
     if (!entryUrl) return;
