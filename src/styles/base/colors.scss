@@ -32,17 +32,3 @@ $project: (
 // Create RGB & XML map if needed
 $project-rgb: colors.getMapWithRGB($project);
 $project-xml: false; // getMapWithXML($project);
-
-
-// Create the CSS Variable set
-// ----------------------------------------------
-
-:root{
-  @include colors.createCSSVariableSet(base, $base, $base-rgb, $base-xml);
-  @include colors.createCSSVariableSet(project, $project, $project-rgb, $project-xml);
-
-  //  Global Colors
-  --font-color__base: var(--base__color-1);
-  --icon-color__base: var(--base__color-1);
-  --logo__base-color: var(--base__color-1);
-}

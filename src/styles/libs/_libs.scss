@@ -1,3 +1,6 @@
-@use 'headline/headline.scss' as *;
-@use 'media/media.scss' as *;
-@use 'sections/sections.scss' as *;
+@forward 'headline/headline.scss';
+@forward 'media/media.scss';
+@forward 'sections/sections.scss'; 
+@forward 'colors/colors.scss';
+@forward 'grid/grid.scss';
+@forward 'container/container.scss';

@@ -2,14 +2,9 @@
 //  Styles: App
 //  ---------------------------------------------
 
-@use 'utils/mixins.scss' as *;
-@use 'utils/functions.scss' as *;
-@use 'utils/media.scss' as *;
-@use 'utils/grid.scss' as *;
-@use 'utils/container.scss' as *;
-@use 'base/colors.scss' as *;
+@use 'base/_base.scss' as *;
+@use 'utils/_utils.scss' as *;
 @use 'base/general.scss' as *;
-@use 'base/typo.scss' as *;
 @use 'base/cta.scss' as *;
 @use 'libs/_libs.scss' as *;
 
