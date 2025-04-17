@@ -1,20 +1,24 @@
 name: drop
 type: php
 docroot: ""
-php_version: "8.3"
-nodejs_version: "20"
+php_version: "8.2"
+nodejs_version: "22"
 webserver_type: nginx-fpm
 xdebug_enabled: false
-additional_hostnames: []
 additional_fqdns: []
 database:
     type: postgres
     version: "14"
+hooks:
+  post-start:
+    - exec-host: ddev first-setup
+    - exec-host: ddev initialization
 use_dns_when_possible: true
 composer_version: "2"
 web_environment: []
 corepack_enable: true
 disable_upload_dirs_warning: true
+ngrok_args: --domain mint-widely-boar.ngrok-free.app
 
 # Key features of DDEV's config.yaml:
 

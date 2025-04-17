@@ -1,0 +1,20 @@
+#!/bin/bash
+
+## Description: Initial project setup
+## Usage: first-setup
+## Example: "ddev first-setup"
+
+if [ -f ${DDEV_APPROOT}/.ddev/first-setup-done ]; then
+    exit 0;
+fi
+
+YELLOW="\033[1;33m"
+GREEN="\033[0;32m"
+NONE="\033[0m"
+
+echo -e "${YELLOW}.ddev/first-setup-done missing, initializing project setup... ${NONE}"
+ddev exec pnpm install
+ddev exec "touch .ddev/first-setup-done"
+echo -e "${GREEN}Initial project setup done.${NONE}"
+
+exit 0
