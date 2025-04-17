@@ -1,41 +1,49 @@
-'use client';
+'use client'
 
-import { authClient } from '@/auth/client';
-import { useState } from 'react';
-import { useRouter, redirect } from 'next/navigation';
-import './styles.scss';
-import { Logo } from '@/components/common/logo';
-import Image from 'next/image';
+import { authClient } from '@/auth/client'
+import { useState } from 'react'
+import { useRouter, redirect } from 'next/navigation'
+import { Logo } from '@/components/common/logo'
+import Image from 'next/image'
+import './styles.scss'
+import { LoginSchema } from '@/schemas/schemas'
 
 export default function SignUp() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const router = useRouter();
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const router = useRouter()
 
   const signIn = async () => {
-    const { data, error } = await authClient.signIn.email({ email, password }, { 
-      onRequest: (ctx) => { 
-        //show loading
-        console.log(ctx);
-      }, 
-      onSuccess: (ctx) => {
-        console.log(ctx);
-        router.push('/');
-        //redirect to the dashboard
-      }, 
-      onError: (ctx) => { 
-        alert(ctx.error.message); 
-      }, 
-    });
+    const validationResult = LoginSchema.safeParse({ email, password })
+    if (!validationResult.success) {
+      alert('ZOD: Invalid email or password')
+      return
+    }
 
-    if (error) console.log(error);
-    if (data) console.log(data);
-  };
+    const { data, error } = await authClient.signIn.email(
+      { email, password },
+      {
+        onRequest: (ctx) => {
+          //show loading
+          console.log(ctx)
+        },
+        onSuccess: (ctx) => {
+          console.log(ctx)
+          router.push('/')
+          //redirect to the dashboard
+        },
+        onError: (ctx) => {
+          alert(ctx.error.message)
+        },
+      },
+    )
 
-  const { 
-    data: session, 
-  } = authClient.useSession();
-  if (session) redirect('/');
+    if (error) console.log(error)
+    if (data) console.log(data)
+  }
+
+  const { data: session } = authClient.useSession()
+  if (session) redirect('/')
 
   return (
     <div className="login-page-container">
@@ -55,5 +63,5 @@ export default function SignUp() {
         </div>
       </div>
     </div>
-  );
+  )
 }
