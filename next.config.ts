@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
 
   experimental: {
-    reactCompiler: false,
+    reactCompiler: true,
   },
 
   allowedDevOrigins: ['**.ddev.site'],
@@ -39,14 +39,6 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: '**.ddev.site',
-      },
-      {
-        protocol: 'https',
-        hostname: '**.halftime.dev',
-      },
-      {
-        protocol: 'https',
-        hostname: '**.halftime.space',
       },
     ],
   },

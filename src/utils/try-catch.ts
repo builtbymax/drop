@@ -1,4 +1,4 @@
-type Result<T, E = Error> = [T, null] | [null, E];
+type Result<T, E = Error> = [T, null] | [null, E]
 
 /**
  * Wraps an asynchronous operation in a try-catch block and returns a tuple containing
@@ -12,12 +12,12 @@ type Result<T, E = Error> = [T, null] | [null, E];
  */
 export async function tryCatch<T, E = Error>(promise: Promise<T>): Promise<Result<T, E>> {
   try {
-    const data = await promise;
-    return [data, null];
+    const data = await promise
+    return [data, null]
   } catch (error) {
-    return [null, error as E];
-  };
-};
+    return [null, error as E]
+  }
+}
 
 /**
  * Wraps a synchronous function in a try-catch block and returns a tuple containing
@@ -26,14 +26,14 @@ export async function tryCatch<T, E = Error>(promise: Promise<T>): Promise<Resul
  * @template T - The type of the returned value of the function.
  * @template E - The type of the error, defaults to `Error`.
  * @param {() => T} func - The synchronous function to handle.
- * @returns {Result<T, E>} A tuple where the first element is the returned value or `null` 
+ * @returns {Result<T, E>} A tuple where the first element is the returned value or `null`
  * if an error occurred, and the second element is the error or `null`.
  */
 export function tryCatchSync<T, E = Error>(func: () => T): Result<T, E> {
   try {
-    const data = func();
-    return [data, null];
+    const data = func()
+    return [data, null]
   } catch (error) {
-    return [null, error as E];
-  };
-};
+    return [null, error as E]
+  }
+}
