@@ -1,6 +1,7 @@
 # Drop
 
 Drop is a minimal and easy way to save links on your own server or local machine. It is built with TypeScript, Next.js, and PostgreSQL, providing a simple interface to manage your saved links.
+Tis project is a work in progress, and more features will be added over time - it will be used as a playground for me to learn and experiment with new technologies.
 
 ## Features
 
